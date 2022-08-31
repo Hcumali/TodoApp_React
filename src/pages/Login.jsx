@@ -23,16 +23,15 @@ const Login = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container_login">
       <TextField 
-        id="username" 
         label="Username" 
         variant="filled" 
         focused
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <Button id='btn_login' variant="contained" onClick={goTodos}>Login</Button>
+      <Button id='btn_login' variant="contained" onClick={goTodos}>LOGIN</Button>
     </div>
   )
 }

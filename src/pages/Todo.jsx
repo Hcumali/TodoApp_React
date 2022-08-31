@@ -18,7 +18,7 @@ const Todo = () => {
   
 
   return (
-    <div className='container'>
+    <div className='container_todo'>
       <div className='username'>Hoşgeldin <strong>{username}</strong></div>
       <TodoComponent />
       <Button variant="contained" onClick={goLogin}>Logout</Button>

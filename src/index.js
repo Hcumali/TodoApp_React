@@ -5,11 +5,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Login from './scenes/Login';
-import Todo from './scenes/Todo';
+
+import Login from './pages/Login';
+import Todo from './pages/Todo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
   <BrowserRouter>
     <Routes>
