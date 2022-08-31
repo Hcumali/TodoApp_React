@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css"
 
@@ -8,20 +10,29 @@ const Login = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-
-  }, [])
-
-  useEffect(() => {
     localStorage.setItem("username", username);
   }, [username]);
   
   const goTodos = () => {
-    navigate("/todo");
+    if (username.length < 1) {
+      alert("Kullanıcı adı boş olamaz")
+    }
+    else {
+      navigate("/todo");
+    }
   }
 
   return (
     <div className="container">
-      <Button variant="contained" onClick={goTodos}>Todos</Button>
+      <TextField 
+        id="username" 
+        label="Username" 
+        variant="filled" 
+        focused
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <Button id='btn_login' variant="contained" onClick={goTodos}>Login</Button>
     </div>
   )
 }
