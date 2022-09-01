@@ -6,7 +6,7 @@ const addTodo = (todo) => {
       "Content-Type": "application/json",
     };
 
-    const params = {
+    const data = {
         content: todo
     }
 
@@ -14,8 +14,49 @@ const addTodo = (todo) => {
         axiosObject({
             method: "POST",
             headers,
-            data: params,
+            data: data,
             url: "https://630de7b6b37c364eb70e5f89.mockapi.io/todos"
+        })
+        .then((response) => {
+            resolve(response);
+        })
+        .catch((err) => {
+            reject(err);
+        });
+    });
+};
+
+const deleteTodo = (todoId) => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    return new Promise((resolve, reject) => {
+        axiosObject({
+            method: "DELETE",
+            headers,
+            url: "https://630de7b6b37c364eb70e5f89.mockapi.io/todos/" + todoId
+        })
+        .then((response) => {
+            resolve(response);
+        })
+        .catch((err) => {
+            reject(err);
+        });
+    });
+};
+
+const updateTodo = (todo) => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    return new Promise((resolve, reject) => {
+        axiosObject({
+            method: "PUT",
+            headers,
+            data: todo,
+            url: "https://630de7b6b37c364eb70e5f89.mockapi.io/todos/" + todo.id
         })
         .then((response) => {
             resolve(response);
@@ -46,4 +87,4 @@ const getTodoList = () => {
     });
 };
 
-export { addTodo, getTodoList };
+export { addTodo, deleteTodo, getTodoList, updateTodo };

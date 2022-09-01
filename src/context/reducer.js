@@ -3,6 +3,7 @@ export const initialState = {
 }
 
 const reducer = (state, action) => {
+    console.log("action: ", action);
     switch (action.type) {
         case "SET_TODO":
             return {
@@ -15,6 +16,22 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 todos: [action.payload, ...state.todos]
+            }
+            break;
+
+        case "UPDATE_TODO":
+            var todo = state.todos.find(todo => todo.id == action.payload.id);
+            todo.isCompleted = action.payload.isCompleted;
+
+            return {
+                ...state
+            }
+            break;
+
+        case "DELETE_TODO":
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id != action.payload)
             }
             break;
     

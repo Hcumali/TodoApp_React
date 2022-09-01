@@ -1,13 +1,32 @@
 import React, {useEffect, useState} from 'react'
+import * as api from "../api/request";
+import {useTodoLayerValue} from '../context/TodoContext'
 
 const Card = ({todo}) => {
+  const [{todos}, dispatch] = useTodoLayerValue();
 
   const checkboxHandler = () => {
-    console.log("checkbox değeri değişti.");
+    todo.isCompleted = !todo.isCompleted;
+
+    api.updateTodo(todo).then((res) => {
+      if (res.status == 200) {
+        dispatch({
+          type: "UPDATE_TODO",
+          payload: res.data
+        }) 
+      }
+    }).catch(err => console.log(err))
   }
 
   const buttonHandler = () => {
-    console.log("button tıklandı.");
+    api.deleteTodo(todo.id).then((res) => {
+      if (res.status == 200) {
+        dispatch({
+          type: "DELETE_TODO",
+          payload: res.data.id
+        }) 
+      }
+    }).catch(err => console.log(err))
   }
   
   return (
