@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.383) , rgba(255, 255, 0, 0.564));
+    background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(149, 147, 147), rgb(63, 61, 61));
 }
 
 #btn_login {

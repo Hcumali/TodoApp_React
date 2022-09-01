@@ -10,7 +10,7 @@ const TodoComponent = () => {
       <Card 
         variant="outlined" 
         style={{
-          backgroundColor: 'rgba(255, 0, 0, 0.050)',
+          backgroundColor: 'white',
           width: 500,
           height: 500,
           display: 'flex',

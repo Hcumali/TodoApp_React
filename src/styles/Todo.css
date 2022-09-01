@@ -4,9 +4,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to left, rgba(255, 0, 0, 0.383) , rgba(255, 255, 0, 0.564));
+    background-color: rgba(238, 231, 216, 0.667);
 }
 
 .username {
     font-size: x-large;
 }
+
+/*
+
+background-image: linear-gradient(to left, rgba(45, 15, 240, 0.682) , rgba(109, 157, 231, 0.564));
+*/
