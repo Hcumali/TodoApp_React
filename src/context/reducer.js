@@ -3,9 +3,14 @@ export const initialState = {
 }
 
 const reducer = (state, action) => {
-    console.log("action: ", action);
-
     switch (action.type) {
+        case "SET_TODO":
+            return {
+                ...state,
+                todos: action.payload
+            }
+            break;
+
         case "ADD_TODO":
             return {
                 ...state,

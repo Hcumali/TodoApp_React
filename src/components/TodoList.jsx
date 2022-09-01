@@ -1,16 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import * as api from '../api/request.js';
+import Card from "./Card";
 import {useTodoLayerValue} from '../context/TodoContext'
 
 const TodoList = () => {
   const [{todos}, dispatch] = useTodoLayerValue();
-  const [_todos, setTodos] = useState([]);
 
   useEffect(() => {
     api.getTodoList().then((res) => {
       if (res.status) {
-        console.log(res.data.reverse());
-        setTodos(res.data)
+        dispatch({
+          type: "SET_TODO",
+          payload: res.data.reverse()
+        })
       }
     })
     .catch((err) => console.log(err));
@@ -21,11 +23,7 @@ const TodoList = () => {
       {
         todos.map((todo) => 
         (
-          <div className='todo' key={todo.id}>
-            {todo.id}_ 
-            {todo.content}_  
-            {todo.isCompleted.toString()} 
-          </div>
+          <Card key={todo.id} todo={todo} />
         ))
       }
     </div>
@@ -33,3 +31,4 @@ const TodoList = () => {
 }
 
 export default TodoList
+

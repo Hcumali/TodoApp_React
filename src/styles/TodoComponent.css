@@ -24,3 +24,32 @@
     right: 0;
     height: 100%;
 }
+
+#btn_delete {
+    background-color: red;
+    border: 1px solid black;
+    padding: 3px 6px 3px 6px;
+    font-size: medium;
+}
+
+#input_box {
+    transform : scale(2);
+    margin-right: 15px;
+}
+
+.container_todoList {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.todo_card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 0.6px solid black;
+}
