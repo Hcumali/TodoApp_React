@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Card } from '@mui/material';
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"

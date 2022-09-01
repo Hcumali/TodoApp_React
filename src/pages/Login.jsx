@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css"
 
@@ -31,7 +30,13 @@ const Login = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <Button id='btn_login' variant="contained" onClick={goTodos}>LOGIN</Button>
+      <Button 
+        id='btn_login' 
+        variant="contained" 
+        onClick={goTodos}
+      >
+        LOGIN
+      </Button>
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import * as api from "../api/request";
+import Button from '@mui/material/Button';
 import {useTodoLayerValue} from '../context/TodoContext'
 
 const Card = ({todo}) => {
@@ -9,7 +10,7 @@ const Card = ({todo}) => {
     todo.isCompleted = !todo.isCompleted;
 
     api.updateTodo(todo).then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         dispatch({
           type: "UPDATE_TODO",
           payload: res.data
@@ -20,7 +21,7 @@ const Card = ({todo}) => {
 
   const buttonHandler = () => {
     api.deleteTodo(todo.id).then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         dispatch({
           type: "DELETE_TODO",
           payload: res.data.id
@@ -41,12 +42,14 @@ const Card = ({todo}) => {
           checked={ todo.isCompleted }
           onChange={ checkboxHandler } 
         />
-        <input
-          id='btn_delete'
-          type={"button"}
-          value={"Delete"}
-          onClick={ buttonHandler }
-        />
+        <Button 
+          id='btn_delete' 
+          variant="contained" 
+          size='small'
+          onClick={buttonHandler}
+        >
+          DELETE
+        </Button>
       </div>
     </div>
   )

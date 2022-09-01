@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import * as api from "../api/request";
@@ -17,7 +17,7 @@ const AddTodo = () => {
     }
     else {
       api.addTodo(todo).then((res) => {
-        if (res.status == 201) {
+        if (res.status === 201) {
           dispatch({
             type: "ADD_TODO",
             payload: res.data
