@@ -1,14 +1,38 @@
 import axios from "axios";
+var axiosObject = axios.create();
 
-var axios = axios.create();
+const addTodo = (todo) => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
-export const getTodoList = () => {
+    const params = {
+        content: todo
+    }
+
+    return new Promise((resolve, reject) => {
+        axiosObject({
+            method: "POST",
+            headers,
+            data: params,
+            url: "https://630de7b6b37c364eb70e5f89.mockapi.io/todos"
+        })
+        .then((response) => {
+            resolve(response);
+        })
+        .catch((err) => {
+            reject(err);
+        });
+    });
+};
+
+const getTodoList = () => {
     const headers = {
       "Content-Type": "application/json",
     };
 
     return new Promise((resolve, reject) => {
-        axios({
+        axiosObject({
             method: "GET",
             headers,
             url: "https://630de7b6b37c364eb70e5f89.mockapi.io/todos"
@@ -21,3 +45,5 @@ export const getTodoList = () => {
         });
     });
 };
+
+export { addTodo, getTodoList };

@@ -1,4 +1,26 @@
-.container1 {
+.container_todoComponent {
     margin-top: 4vh;
     margin-bottom: 4vh;
+}
+
+.AddTodo {
+    display: flex;
+}
+
+.div1 {
+    flex-grow: 10000;
+}
+
+.div2 {
+    flex-grow: 1;
+    position:relative;
+}
+
+#btn_addTodo {
+    float: none;
+    margin-right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
 }
